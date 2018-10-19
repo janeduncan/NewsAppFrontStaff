@@ -31,14 +31,20 @@
   }
 }
 
-.article-container{
+.grid-item{
   border: solid 1px black;
   margin: 10px;
-  width: 300px;
+  grid-row-start: 1;
 }
 
-.journalist-container{
-  border: solid 1px black;
-  margin: 10px;
-  width: 300px;
+.grid-item-heading{
+  text-align: center;
+}
+
+.staff-container{
+  display: grid;
+}
+
+.buttons-container{
+  text-align: center;
 }
