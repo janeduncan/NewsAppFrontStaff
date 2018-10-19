@@ -4,17 +4,17 @@ import {Link} from 'react-router-dom'
 const NavBar = (props) => {
   return (
     <header>
-      <ul>
-        <li className="navLink">
+      <div className="navbar-div">
+        <div className="navLink">
           <Link to="/staff">Homepage</Link>
-        </li>
-        <li className="navLink">
+        </div>
+        <div className="navLink">
           <Link to="/staff/journalists">Journalists</Link>
-        </li>
-        <li className="navLink">
+        </div>
+        <div className="navLink">
           <Link to="/staff/articles">Articles</Link>
-        </li>
-      </ul>
+        </div>
+      </div>
     </header>
   )
 }

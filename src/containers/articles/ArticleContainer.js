@@ -1,15 +1,25 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
-const ArticleContainer = (props) => {
+const StaffContainerItem = (props) => {
+
+  const handleViewAllClick = () => {
+   console.log("view all clicked!");
+  }
+
+  const handleAddNewClick = () => {
+    console.log("button clicked");
+  }
+
   return (
-    <div className="grid-item">
+    <div className="staff-container-item">
       <h1 className="grid-item-heading">Articles</h1>
       <div className="buttons-container">
-        <button className="view-all-button">View all</button>
-        <button className="add-new-button">Add new article</button>
+        <button className="view-all-button" onClick={handleViewAllClick}>View all</button>
+        <button className="add-new-button" onClick={handleAddNewClick}>Add new article</button>
       </div>
     </div>
   )
 }
 
-export default ArticleContainer;
+export default StaffContainerItem;

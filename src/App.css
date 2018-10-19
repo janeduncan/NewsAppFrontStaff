@@ -31,7 +31,11 @@
   }
 }
 
-.grid-item{
+body {
+  font-family: arial;
+}
+
+.staff-container-item{
   border: solid 1px black;
   margin: 10px;
   grid-row-start: 1;
@@ -47,4 +51,17 @@
 
 .buttons-container{
   text-align: center;
+}
+
+.navbar-div{
+  display: grid;
+  margin: 20px;
+  margin-right: 0px;
+  margin-left: 0px;
+  border-bottom: solid 1px black;
+}
+
+.navLink{
+  grid-row-start: 1;
+  padding: 20px;
 }
