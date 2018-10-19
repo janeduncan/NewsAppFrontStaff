@@ -12,10 +12,10 @@ const StaffContainerItem = (props) => {
 
   return (
     <div className="staff-container-item">
-      <h1 className="grid-item-heading">Journalists</h1>
+      <h1 className="grid-item-heading">{props.title+"s"}</h1>
       <div className="buttons-container">
         <button className="view-all-button" onClick={handleViewAllClick}>View all</button>
-        <button className="add-new-button" onClick={handleAddNewClick}>Add new journalist</button>
+        <button className="add-new-button" onClick={handleAddNewClick}>Add new {props.title}</button>
       </div>
     </div>
   )
