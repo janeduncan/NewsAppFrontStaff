@@ -30,3 +30,15 @@
     transform: rotate(360deg);
   }
 }
+
+.article-container{
+  border: solid 1px black;
+  margin: 10px;
+  width: 300px;
+}
+
+.journalist-container{
+  border: solid 1px black;
+  margin: 10px;
+  width: 300px;
+}

@@ -8,6 +8,12 @@ const NavBar = (props) => {
         <li className="navLink">
           <Link to="/staff">Homepage</Link>
         </li>
+        <li className="navLink">
+          <Link to="/staff/journalists">Journalists</Link>
+        </li>
+        <li className="navLink">
+          <Link to="/staff/articles">Articles</Link>
+        </li>
       </ul>
     </header>
   )
