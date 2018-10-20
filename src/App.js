@@ -7,6 +7,7 @@ import JournalistListContainer from './containers/journalists/JournalistListCont
 import ArticleListContainer from './containers/articles/ArticleListContainer';
 import ArticleFormContainer from './containers/articles/ArticleFormContainer';
 import JournalistFormContainer from './containers/journalists/JournalistFormContainer';
+import ArticleDetails from './components/ArticleDetails';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
             <Route exact path="/staff/journalists" component={JournalistListContainer}/>
             <Route exact path="/staff/journalists/new" component={JournalistFormContainer}/>
             <Route exact path="/staff/articles" component={ArticleListContainer}/>
+            <Route exact path="/staff/articles/:id" component={ArticleDetails}/>
             <Route exact path="/staff/articles/new" component={ArticleFormContainer}/>
           </Switch>
         </React.Fragment>
