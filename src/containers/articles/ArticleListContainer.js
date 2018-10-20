@@ -5,40 +5,17 @@ class ArticleListContainer extends Component {
   constructor(props){
     super(props)
     this.state = {
-      articles: [
-        {
-          category: "sports",
-          title: "football news",
-          body: "some news about football",
-          journalist: "Bart Simpson",
-          date: "20/10/18"
-        },
-        {
-          category: "music",
-          title: "music news",
-          body: "some news about music",
-          journalist: "Pacman",
-          date: "19/10/18"
-        },
-        {
-          category: "animals",
-          title: "news about hamsters",
-          body: "some news about hamsters",
-          journalist: "Merlin",
-          date: "19/10/18"
-        }
-
-      ]
+      articles: []
     }
   }
 
-  // componentDidMount(){
-  //   fetch('/articles')
-  //   .then((res) => res.json())
-  //   .then((data) => {
-  //     this.setState({articles: data})
-  //   })
-  // }
+  componentDidMount(){
+    fetch('/articles')
+    .then((res) => res.json())
+    .then((data) => {
+      this.setState({articles: data._embedded.articles})
+    })
+  }
 
   displayArticles(){
     return (
@@ -49,6 +26,7 @@ class ArticleListContainer extends Component {
   }
 
   render(){
+    console.log(this.state.articles);
     return (
       <div className="article-list-container">
         <h1 className="list-heading">Articles</h1>
