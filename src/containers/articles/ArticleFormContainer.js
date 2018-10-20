@@ -1,19 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class ArticleFormContainer extends Component {
-  constructor(props){
-    super(props);
-  }
+const handleSubmit = (event) => {
+  console.log(event.target.value);
+}
 
-  handleSubmit(event){
-    console.log(event.target.value);
-  }
+const ArticleFormContainer = (props) => {
 
-  render(){
     return (
       <div>
         <h1>Add a new article</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <input type="text" placeholder="Title" name="title" required/>
           <input type="text" placeholder="Image URL" name="imageUrl" required/>
           <input type="text" placeholder="text" name="text" required/>
@@ -24,7 +20,10 @@ class ArticleFormContainer extends Component {
         </form>
       </div>
     )
-  }
+
 }
+
+
+
 
 export default ArticleFormContainer;

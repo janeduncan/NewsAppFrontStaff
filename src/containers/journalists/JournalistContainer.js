@@ -1,13 +1,13 @@
 import React from 'react';
 
-const StaffContainerItem = (props) => {
+const JournalistContainer = (props) => {
 
   const handleViewAllClick = () => {
-   console.log("view all clicked!");
+    window.location = "/staff/journalists"
   }
 
   const handleAddNewClick = () => {
-    console.log("add new clicked!")
+    window.location = "/staff/journalists/new"
   }
 
   return (
@@ -21,4 +21,4 @@ const StaffContainerItem = (props) => {
   )
 }
 
-export default StaffContainerItem;
+export default JournalistContainer;
