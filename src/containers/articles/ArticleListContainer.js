@@ -26,7 +26,6 @@ class ArticleListContainer extends Component {
   }
 
   render(){
-    console.log(this.state.articles);
     return (
       <div className="article-list-container">
         <h1 className="list-heading">Articles</h1>
