@@ -1,14 +1,14 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-const StaffContainerItem = (props) => {
+const ArticleContainer = (props) => {
 
   const handleViewAllClick = () => {
-   console.log("view all clicked!");
+   window.location = "/staff/articles"
   }
 
   const handleAddNewClick = () => {
-    console.log("button clicked");
+    window.location = "/staff/articles/new"
   }
 
   return (
@@ -22,4 +22,4 @@ const StaffContainerItem = (props) => {
   )
 }
 
-export default StaffContainerItem;
+export default ArticleContainer;
