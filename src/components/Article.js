@@ -4,12 +4,16 @@ const Article = (props) => {
 
   const url = '/articles/' + (props.index + 1);
 
+  const categoryNames = props.data.categories.map((category, index) => {
+    return <div key={index}>{category.category} </div>
+  })
+
   return (
     <tr>
       <td>{props.data.date}</td>
       <td>{props.data.title}</td>
-      <td>{props.data.journalist}</td>
-      <td>{props.data.category}</td>
+      <td>{props.data.journalist.name}</td>
+      <td>{categoryNames}</td>
       <td><a href={url}>view</a></td>
     </tr>
   )

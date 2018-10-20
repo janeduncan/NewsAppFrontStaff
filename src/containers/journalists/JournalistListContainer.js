@@ -5,30 +5,16 @@ class JournalistList extends Component {
   constructor(props){
     super(props)
     this.state = {
-      journalists: [
-        {
-          type: "sports reporter",
-          firstName: "Bart",
-          lastName: "Simpson",
-          articles: ["an article", "another article"],
-          image: '/images/merlin.jpg'
-        },
-        {
-          type: "music reporter",
-          firstName: "Pac",
-          lastName: "Man",
-          articles: ["an article", "another article"],
-          image: '/images/merlin.jpg'
-        },
-        {
-          type: "wildlife reporter",
-          firstName: "Merlin",
-          lastName: "",
-          articles: ["an article", "another article"],
-          image: '/images/merlin.jpg'
-        }
-      ]
+      journalists: []
     }
+  }
+
+  componentDidMount(){
+    fetch('/journalists')
+    .then((res) => res.json())
+    .then((data) => {
+      this.setState({journalists: data._embedded.journalists})
+    })
   }
 
   displayJournalists(){
