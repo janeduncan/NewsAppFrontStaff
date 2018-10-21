@@ -37,6 +37,7 @@ class ArticleListContainer extends Component {
               <th>Date</th>
               <th>Title</th>
               <th>Journalist</th>
+              <th>Region</th>
               <th>Categories</th>
               <th>Edit</th>
             </tr>
