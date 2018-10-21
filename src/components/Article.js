@@ -1,6 +1,10 @@
 import React from 'react';
+import moment from 'moment';
 
 const Article = (props) => {
+
+  let date = new Date(props.data.date);
+  let formattedDate = moment(date).format("DD/MM/YY");
 
   const url = '/articles/' + (props.index + 1);
 
@@ -10,7 +14,7 @@ const Article = (props) => {
 
   return (
     <tr>
-      <td>{props.data.date}</td>
+      <td>{formattedDate}</td>
       <td>{props.data.title}</td>
       <td>{props.data.journalist.name}</td>
       <td>{props.data.region}</td>
@@ -19,6 +23,5 @@ const Article = (props) => {
     </tr>
   )
 }
-
 
 export default Article;
