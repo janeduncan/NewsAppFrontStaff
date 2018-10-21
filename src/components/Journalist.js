@@ -14,7 +14,7 @@ const Journalist = (props) => {
               <div className="container">
                 <h3><p>{props.data.name}</p></h3>
                 <p>{props.data.jobTitle}</p>
-                 <p>{props.data.region}</p>
+                 <p>{props.data.location}</p>
                 <a href={url}>View details</a>
                 <p></p>
               </div>
