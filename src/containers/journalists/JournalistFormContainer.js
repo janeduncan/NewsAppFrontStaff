@@ -29,9 +29,7 @@ const JournalistFormContainer = (props) => {
         <input type="text" placeholder="Phone number" name="phoneNumber" required/>
         <input type="text" placeholder="Email" name="email" required/>
         <input type="text" placeholder="Image URL" name="image" required/>
-        <select name="location">
-          <option>Select a location</option>
-        </select>
+        <input type="text" placeholder="Location" name="location" required/>
         <button type="submit">Submit</button>
       </form>
     </div>
