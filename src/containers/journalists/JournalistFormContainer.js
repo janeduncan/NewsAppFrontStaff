@@ -1,6 +1,7 @@
 import React from 'react';
 
 const handleSubmit = (event) => {
+
   event.preventDefault();
   fetch("/staff/journalists", {
       method: 'POST',
@@ -9,7 +10,8 @@ const handleSubmit = (event) => {
         "name": event.target.name.value,
         "jobTitle": event.target.jobTitle.value,
         "phoneNumber": event.target.phoneNumber.value,
-        "email": event.target.email.value
+        "email": event.target.email.value,
+        "location": event.target.location.value
       })
   }).then(() => {
     window.location = "/staff/journalists";
@@ -34,11 +36,5 @@ const JournalistFormContainer = (props) => {
     </div>
   )
 }
-
-// this.name = name;
-//         this.jobTitle = jobTitle;
-//         this.location = location;
-//         this.phoneNumber = phoneNumber;
-//         this.email = email;
 
 export default JournalistFormContainer;

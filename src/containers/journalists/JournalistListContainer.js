@@ -26,6 +26,7 @@ class JournalistList extends Component {
   }
 
   render(){
+    console.log(this.state.journalists);
     return(
       <div className="journalist-list-container">
         <h1 className="list-heading">Journalists</h1>
