@@ -11,13 +11,13 @@ const handleSubmit = (event) => {
         "jobTitle": event.target.jobTitle.value,
         "phoneNumber": event.target.phoneNumber.value,
         "email": event.target.email.value,
-        "location": event.target.location.value
+        "location": event.target.location.value,
+        "image": event.target.image.value
       })
   }).then(() => {
     window.location = "/staff/journalists";
   })
 }
-
 
 const JournalistFormContainer = (props) => {
   return (
@@ -28,10 +28,11 @@ const JournalistFormContainer = (props) => {
         <input type="text" placeholder="Job title" name="jobTitle" required/>
         <input type="text" placeholder="Phone number" name="phoneNumber" required/>
         <input type="text" placeholder="Email" name="email" required/>
+        <input type="text" placeholder="Image URL" name="image" required/>
         <select name="location">
           <option>Select a location</option>
         </select>
-        <button type="submit">Add</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   )
