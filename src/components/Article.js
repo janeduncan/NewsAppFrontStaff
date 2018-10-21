@@ -4,7 +4,7 @@ import moment from 'moment';
 const Article = (props) => {
 
   let date = new Date(props.data.date);
-  let formattedDate = moment(date).format("DD/MM/YY");
+  let formattedDate = moment(date).format("DD/MM/YYYY HH:mm");
 
   const url = '/articles/' + (props.index + 1);
 
