@@ -29,18 +29,23 @@ class ArticleListContainer extends Component {
     return (
       <div className="article-list-container">
         <h1 className="list-heading">Articles</h1>
+
+
         <table id="articles-table">
           <tbody>
             <tr>
               <th>Date</th>
               <th>Title</th>
               <th>Journalist</th>
-              <th>Categories</th>
               <th>Region</th>
+              <th>Categories</th>
+              <th>Edit</th>
             </tr>
             {this.displayArticles()}
           </tbody>
         </table>
+
+
       </div>
   )
   }

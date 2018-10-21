@@ -6,11 +6,22 @@ const Journalist = (props) => {
 
   return (
     <div className="journalist-item">
-      <img src={props.data.image} width='200' alt={props.data.name}/>
-      <p>{props.data.name}</p>
-      <p>{props.data.jobTitle}</p>
-      <p>{props.data.region}</p>
-      <a href={url}>view details</a>
+      <div className="grid">
+        <div className="grid-row">
+          <div className="cell">
+            <div class="card">
+              <img src={props.data.image} alt={props.data.name} width="200px"></img>
+              <div className="container">
+                <h3><p>{props.data.name}</p></h3>
+                <p>{props.data.jobTitle}</p>
+                 <p>{props.data.region}</p>
+                <a href={url}>View details</a>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
