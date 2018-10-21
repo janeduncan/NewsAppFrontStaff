@@ -15,7 +15,6 @@ const Article = (props) => {
       <td>{props.data.journalist.name}</td>
       <td>{props.data.region}</td>
       <td>{categoryNames}</td>
-      <td>{props.data.region}</td>
       <td><a href={url}>View</a></td>
     </tr>
   )
