@@ -22,16 +22,66 @@ const handleSubmit = (event) => {
 const JournalistFormContainer = (props) => {
   return (
     <div>
-      <h1>Add a new journalist</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Name" name="name" required/>
-        <input type="text" placeholder="Job title" name="jobTitle" required/>
-        <input type="text" placeholder="Phone number" name="phoneNumber" required/>
-        <input type="text" placeholder="Email" name="email" required/>
-        <input type="text" placeholder="Image URL" name="image" required/>
-        <input type="text" placeholder="Location" name="location" required/>
-        <button type="submit">Submit</button>
-      </form>
+      <h1 className="grid-item-heading">Add a new journalist</h1>
+        <div className="form">
+          <div className="slimform">
+            <div className="box">
+              <form onSubmit={handleSubmit}>
+                <div className="row">
+                  <div className="col-30">
+                    <label for="name">Name: </label>
+                  </div>
+                  <div className="col-70">
+                    <input type="text" name="name" required/>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-30">
+                    <label for="job-title">Job title: </label>
+                  </div>
+                  <div className="col-70">
+                    <input type="text" name="jobTitle" required/>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-30">
+                    <label for="phone-number">Phone number: </label>
+                  </div>
+                  <div className="col-70">
+                    <input type="text" name="phoneNumber" required/>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-30">
+                    <label for="email">Email address: </label>
+                  </div>
+                  <div className="col-70">
+                    <input type="text" name="email" required/>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-30">
+                    <label for="image">Image URL: </label>
+                  </div>
+                  <div className="col-70">
+                    <input type="text" name="image" required/>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-30">
+                    <label for="location">Location: </label>
+                  </div>
+                  <div className="col-70">
+                    <input type="text" name="location" required/>
+                  </div>
+                </div>
+                <div className="row">
+                  <input type="submit" value="Submit"/>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
     </div>
   )
 }

@@ -74,44 +74,44 @@ a {
 /* Staff container buttons */
 
 .view-all-button {
-    border: none;
-    padding: 13px 5px;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    font-size: 0.9em;
-    margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
-    width: 150px;
-    background-color: #194a41;
-    color: white;
-    font-weight: bold;
-    border-radius: 8px;
+  border: none;
+  padding: 13px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 0.9em;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 150px;
+  background-color: #194a41;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
 }
 
 .view-all-button-hover:hover {
-    background-color: #555555;
-    color: white;
+  background-color: #555555;
+  color: white;
 }
 
 /* Journalist cards */
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
-    transition: 0.3s;
-    height: 100%;
-    font-size: 1em;
-    word-wrap: break-word;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+  transition: 0.3s;
+  height: 100%;
+  font-size: 1em;
+  word-wrap: break-word;
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
 }
 
 .container {
-    padding: 2px 16px;
+  padding: 2px 16px;
 }
 
 /* Journalist cards flex box */
@@ -131,14 +131,14 @@ a {
 /* Table */
 
 table {
-    border-collapse: collapse;
-    width: 70%;
-    margin: auto;
+  border-collapse: collapse;
+  width: 70%;
+  margin: auto;
 }
 
 table td, table th {
-    border: 1px solid #f1f1f1;
-    padding: 8px;
+  border: 1px solid #f1f1f1;
+  padding: 8px;
 }
 
 table tr:nth-child(even) {
@@ -150,13 +150,92 @@ table tr:hover {
 }
 
 table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #194a41;
-    color: white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #194a41;
+  color: white;
 }
 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Form */
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 210px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #194a41;
+  color: white;
+  padding: 12px 20px;
+  border-color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #555555;
+}
+
+.box {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-30 {
+  float: left;
+  width: 30%;
+}
+
+.col-70 {
+  float: left;
+  width: 70%;
+  margin-top: 6px;
+}
+
+.right{
+  float:right!important;
+}
+
+.form{
+  padding:2em 16px;
+}
+
+.slimform {
+  margin: auto;
+  width: 60%;
+}
 
 /* Fiona */
 .staff-container-item{
@@ -170,6 +249,7 @@ table th {
 
 .grid-item-heading{
   text-align: center;
+  color: #2e2e2e;
 }
 
 .staff-container{
