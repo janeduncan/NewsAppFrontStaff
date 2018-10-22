@@ -34,7 +34,7 @@ class JournalistFormContainer extends Component {
               <form onSubmit={this.handleSubmit}>
                 <div className="row">
                   <div className="col-30">
-                    <label for="name">Name: </label>
+                    <label htmlFor="name">Name: </label>
                   </div>
                   <div className="col-70">
                     <input type="text" name="name" required/>
@@ -43,7 +43,7 @@ class JournalistFormContainer extends Component {
 
                 <div className="row">
                   <div className="col-30">
-                    <label for="job-title">Job Title: </label>
+                    <label htmlFor="job-title">Job Title: </label>
                   </div>
                   <div className="col-70">
                     <input type="text" name="jobTitle" required/>
@@ -51,7 +51,7 @@ class JournalistFormContainer extends Component {
                 </div>
                 <div className="row">
                   <div className="col-30">
-                    <label for="phone-number">Phone Number: </label>
+                    <label htmlFor="phone-number">Phone Number: </label>
                   </div>
                   <div className="col-70">
                     <input type="text" name="phoneNumber" required/>
@@ -59,7 +59,7 @@ class JournalistFormContainer extends Component {
                 </div>
                 <div className="row">
                   <div className="col-30">
-                    <label for="email">Email Address: </label>
+                    <label htmlFor="email">Email Address: </label>
                   </div>
                   <div className="col-70">
                     <input type="text" name="email" required/>
@@ -67,7 +67,7 @@ class JournalistFormContainer extends Component {
                 </div>
                 <div className="row">
                   <div className="col-30">
-                    <label for="image">Image URL: </label>
+                    <label htmlFor="image">Image URL: </label>
                   </div>
                   <div className="col-70">
                     <input type="text" name="image" required/>
@@ -76,7 +76,7 @@ class JournalistFormContainer extends Component {
                 </div>
                 <div className="row">
                   <div className="col-30">
-                    <label for="location">Location: </label>
+                    <label htmlFor="location">Location: </label>
                   </div>
                   <div className="col-70">
                     <input type="text" name="location" required/>

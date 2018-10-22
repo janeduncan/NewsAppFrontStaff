@@ -11,7 +11,12 @@ class JournalistList extends Component {
 
   componentDidMount(){
     fetch('/journalists')
-    .then((res) => res.json())
+    // .then((res) => console.log(res))
+    // .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      return res.json();
+    })
     .then((data) => {
       this.setState({journalists: data._embedded.journalists})
     })
