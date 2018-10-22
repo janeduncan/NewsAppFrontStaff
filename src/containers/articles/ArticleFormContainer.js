@@ -29,7 +29,6 @@ const ArticleFormContainer = (props) => {
             <div className="slimform">
               <div className="box">
                 <form onSubmit={handleSubmit}>
-
                   <div className="row">
                     <div className="col-30">
                       <label for="date">Date: </label>
@@ -38,7 +37,6 @@ const ArticleFormContainer = (props) => {
                       <input type="date" name="date" required/>
                     </div>
                   </div>
-
                   <div className="row">
                     <div className="col-30">
                       <label for="title">Title: </label>

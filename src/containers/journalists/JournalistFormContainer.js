@@ -35,6 +35,7 @@ const JournalistFormContainer = (props) => {
                     <input type="text" name="name" required/>
                   </div>
                 </div>
+                
                 <div className="row">
                   <div className="col-30">
                     <label for="job-title">Job title: </label>
