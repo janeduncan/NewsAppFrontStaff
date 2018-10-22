@@ -39,7 +39,8 @@ class ArticleListContainer extends Component {
               <th>Journalist</th>
               <th>Region</th>
               <th>Categories</th>
-              <th>Edit</th>
+              <th></th>
+              <th></th>
             </tr>
             {this.displayArticles()}
           </tbody>
