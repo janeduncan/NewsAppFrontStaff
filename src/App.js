@@ -28,7 +28,7 @@ class App extends Component {
 
             <Route exact path="/staff/articles" component={ArticleListContainer}/>
             {/* <Route exact path="/staff/articles/:id" component={ArticleDetails}/> */}
-            <Route exact path="/staff/articles/new" component={ArticleFormContainer}/>
+            <Route exact path="/staff/articles/new" render={()=><ArticleFormContainer/>}/>
           </Switch>
         </React.Fragment>
       </Router>
