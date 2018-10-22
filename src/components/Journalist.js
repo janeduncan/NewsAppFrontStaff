@@ -9,7 +9,7 @@ const Journalist = (props) => {
       <div className="grid">
         <div className="grid-row">
           <div className="cell">
-            <div class="card">
+            <div className="card">
               <img src={props.data.image} alt={props.data.name} width="200px"></img>
               <div className="container">
                 <h3><p>{props.data.name}</p></h3>
