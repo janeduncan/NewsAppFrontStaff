@@ -19,7 +19,8 @@ const Article = (props) => {
       <td>{props.data.journalist.name}</td>
       <td>{props.data.region}</td>
       <td>{categoryNames}</td>
-      <td><a href={url}>View</a></td>
+      <td><button>Edit</button></td>
+      <td><button>Delete</button></td>
     </tr>
   )
 }
