@@ -10,6 +10,25 @@ body {
 
 /* Removes visited link colour change & underline */
 
+.buttonz {
+    background-color: grey;
+    border: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.9em;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+.delete {
+  font-style: italic;
+}
+
 a {
   color: black;
   text-decoration: none;
@@ -71,6 +90,10 @@ a {
   position: absolute;
 }
 
+.journalist-individual {
+  margin-top: 50px;
+}
+
 /* Staff container buttons */
 
 .view-all-button {
@@ -102,7 +125,7 @@ a {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
   transition: 0.3s;
   height: 100%;
-  font-size: 1em;
+  font-size: 0.8em;
   word-wrap: break-word;
 }
 

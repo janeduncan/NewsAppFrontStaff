@@ -6,7 +6,7 @@ const Article = (props) => {
   let date = new Date(props.data.date);
   let formattedDate = moment(date).format("DD/MM/YYYY HH:mm");
 
-  const url = '/articles/' + (props.index + 1);
+  const url = '/articles/' + (props.data.id);
 
   const categoryNames = props.data.categories.map((category, index) => {
     return <div key={index}>{category.category} </div>
