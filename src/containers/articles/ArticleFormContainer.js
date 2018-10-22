@@ -24,25 +24,92 @@ const ArticleFormContainer = (props) => {
 
     return (
       <div>
-        <h1>Add a new article</h1>
-        <form onSubmit={handleSubmit}>
-          <input type="date" name="date" required/>
-          <input type="text" placeholder="Title" name="title" required/>
-          <input type="text" placeholder="text" name="text" required/>
-          <input type="text" placeholder="Image URL" name="imageUrl" required/>
-          {/*  Maybe need to use checkboxes for category?  */}
-          <select name="category">
-            <option>Select a category</option>
-          </select>
-          <select name="region">
-            <option>Select a region</option>
-          </select>
-          <select name="journalist">
-            <option>Select a journalist</option>
-          </select>
-          <button type="submit">Submit</button>
-        </form>
+        <h1 className="grid-item-heading">Add a new article</h1>
+          <div className="form">
+            <div className="slimform">
+              <div className="box">
+                <form onSubmit={handleSubmit}>
+
+                  <div className="row">
+                    <div className="col-30">
+                      <label for="date">Date: </label>
+                    </div>
+                    <div className="col-70">
+                      <input type="date" name="date" required/>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-30">
+                      <label for="title">Title: </label>
+                    </div>
+                    <div className="col-70">
+                      <input type="text" name="title" required/>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-30">
+                      <label for="text">Article: </label>
+                    </div>
+                    <div className="col-70">
+                      <input type="text" name="text" required/>
+                      {/* <textarea id="text" name="text" style="height:200px"/> */}
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-30">
+                      <label for="image">Image URL: </label>
+                    </div>
+                    <div className="col-70">
+                      <input type="text" name="image" required/>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-30">
+                      <label for="categories">Category: </label>
+                    </div>
+                  <div className="col-70">
+                  <select id="categories" name="categories" required>
+                      <option value="">Select a category</option>
+                      <option value=""></option>
+                  </select></div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-30">
+                      <label for="region">Region: </label>
+                    </div>
+                  <div className="col-70">
+                  <select id="region" name="region" required>
+                      <option value="">Select a region</option>
+                      <option value=""></option>
+                  </select></div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-30">
+                      <label for="journalist">Journalist: </label>
+                    </div>
+                  <div className="col-70">
+                  <select id="journalist" name="journalist" required>
+                      <option value="">Select a journalist</option>
+                      <option value=""></option>
+                  </select></div>
+                  </div>
+
+                  <div className="row">
+                    <input type="submit" value="Submit"/>
+                  </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
+
     )
 
 }
