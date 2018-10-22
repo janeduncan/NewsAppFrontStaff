@@ -12,9 +12,10 @@ const NavBar = (props) => {
               <div className="dropdown-content">
                 <Link to="/staff">Home</Link>
                 <Link to=".">SGNN</Link>
-                <Link to="/staff/journalists">Journalists</Link>
-                <Link to="/staff/articles">Articles</Link>
-                <Link to="/staff">Log In</Link>
+                <Link to="/staff/journalists">View Journalists</Link>
+                <Link to="/staff/journalists/new">Add Journalist</Link>
+                <Link to="/staff/articles">View Articles</Link>
+                <Link to="/staff/articles">Add Article</Link>
               </div>
             </div>
           </div>

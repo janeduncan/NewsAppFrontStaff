@@ -68,7 +68,6 @@ a {
   position: absolute;
   background-color: #f1f1f1;
   z-index: 1;
-  font-weight: bold;
 }
 
 .dropdown-content a {
