@@ -82,7 +82,7 @@ const ArticleFormContainer = (props) => {
                     </div>
                   <div className="col-70">
                   <select id="region" name="region" required>
-                      <option value="">Select a region</option>
+                      <option value="">Select A Region</option>
                       <option value=""></option>
                   </select></div>
                   </div>

@@ -35,10 +35,10 @@ const JournalistFormContainer = (props) => {
                     <input type="text" name="name" required/>
                   </div>
                 </div>
-                
+
                 <div className="row">
                   <div className="col-30">
-                    <label for="job-title">Job title: </label>
+                    <label for="job-title">Job Title: </label>
                   </div>
                   <div className="col-70">
                     <input type="text" name="jobTitle" required/>
@@ -46,7 +46,7 @@ const JournalistFormContainer = (props) => {
                 </div>
                 <div className="row">
                   <div className="col-30">
-                    <label for="phone-number">Phone number: </label>
+                    <label for="phone-number">Phone Number: </label>
                   </div>
                   <div className="col-70">
                     <input type="text" name="phoneNumber" required/>
@@ -54,7 +54,7 @@ const JournalistFormContainer = (props) => {
                 </div>
                 <div className="row">
                   <div className="col-30">
-                    <label for="email">Email address: </label>
+                    <label for="email">Email Address: </label>
                   </div>
                   <div className="col-70">
                     <input type="text" name="email" required/>
