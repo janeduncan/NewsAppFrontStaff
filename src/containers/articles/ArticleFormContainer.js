@@ -22,7 +22,7 @@ class ArticleFormContainer extends Component {
           "categories": event.target.categories.value
         })
       }).then(() => {
-        window.location = "/articles";
+        window.location = "/staff/articles";
       })
   }
 
