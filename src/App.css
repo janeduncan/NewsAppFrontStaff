@@ -11,7 +11,7 @@ body {
 /* Removes visited link colour change & underline */
 
 a {
-  color: inherit;
+  color: black;
   text-decoration: none;
 }
 

@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const handleSubmit = (event) => {
+class JournalistFormContainer extends Component {
+  constructor(props){
+    super(props)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
 
-  event.preventDefault();
-  fetch("/staff/journalists", {
+  handleSubmit(event)  {
+
+    event.preventDefault();
+    fetch("/journalists", {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -14,19 +20,18 @@ const handleSubmit = (event) => {
         "location": event.target.location.value,
         "image": event.target.image.value
       })
-  }).then(() => {
-    window.location = "/staff/journalists";
-  })
-}
-
-const JournalistFormContainer = (props) => {
-  return (
-    <div>
-      <h1 className="grid-item-heading">Add a new journalist</h1>
+    }).then(() => {
+      window.location = "/staff/journalists";
+    })
+  }
+  render() {
+    return (
+      <div>
+        <h1 className="grid-item-heading">Add a new journalist</h1>
         <div className="form">
           <div className="slimform">
             <div className="box">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={this.handleSubmit}>
                 <div className="row">
                   <div className="col-30">
                     <label for="name">Name: </label>
@@ -35,9 +40,10 @@ const JournalistFormContainer = (props) => {
                     <input type="text" name="name" required/>
                   </div>
                 </div>
+
                 <div className="row">
                   <div className="col-30">
-                    <label for="job-title">Job title: </label>
+                    <label for="job-title">Job Title: </label>
                   </div>
                   <div className="col-70">
                     <input type="text" name="jobTitle" required/>
@@ -45,7 +51,7 @@ const JournalistFormContainer = (props) => {
                 </div>
                 <div className="row">
                   <div className="col-30">
-                    <label for="phone-number">Phone number: </label>
+                    <label for="phone-number">Phone Number: </label>
                   </div>
                   <div className="col-70">
                     <input type="text" name="phoneNumber" required/>
@@ -53,7 +59,7 @@ const JournalistFormContainer = (props) => {
                 </div>
                 <div className="row">
                   <div className="col-30">
-                    <label for="email">Email address: </label>
+                    <label for="email">Email Address: </label>
                   </div>
                   <div className="col-70">
                     <input type="text" name="email" required/>
@@ -65,6 +71,7 @@ const JournalistFormContainer = (props) => {
                   </div>
                   <div className="col-70">
                     <input type="text" name="image" required/>
+                    {/* <input id ="image" type="file" name="image" accept="image/*" required/> */}
                   </div>
                 </div>
                 <div className="row">
@@ -78,12 +85,13 @@ const JournalistFormContainer = (props) => {
                 <div className="row">
                   <input type="submit" value="Submit"/>
                 </div>
-                </form>
-              </div>
+              </form>
             </div>
           </div>
-    </div>
-  )
+        </div>
+      </div>
+    )
+  }
 }
 
 export default JournalistFormContainer;
