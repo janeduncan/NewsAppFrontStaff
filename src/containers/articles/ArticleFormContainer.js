@@ -6,11 +6,12 @@ class ArticleFormContainer extends Component {
 
     this.state = {
       journalists: [],
-      categories: []
+      categories: [],
+      regions: []
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.displayRegions = this.displayRegions.bind(this);
+    this.displayRegions = this.displayRegions.bind(this);
     this.displayJournalists = this.displayJournalists.bind(this);
     this.displayCategories = this.displayCategories.bind(this);
   }
@@ -19,16 +20,15 @@ class ArticleFormContainer extends Component {
 
     event.preventDefault();
 
-    const options = event.target.categories.options
-    const selectedCategories = []
-    for (var index = 0; index < options.length; index++) {
-      if (options[index].selected){
-        selectedCategories.push(this.state.categories[index])
-      }
-    }
+    const options = [...event.target.categories.options]
+    console.log(options);
+    const selectedCategories = options.filter((option) => {
+      return option.selected
+    }).map((option) => {
+      return option.value
+    })
 
 
-    console.log(selectedCategories);
       fetch("/articles", {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -38,16 +38,12 @@ class ArticleFormContainer extends Component {
           "text": event.target.text.value,
           "summary": event.target.summary.value,
           "image": event.target.image.value,
-          "categories": {
-            "id": 1,
-            "category": 0
-          },
+          "categories": selectedCategories,
           "region": event.target.region.value,
           "journalist": event.target.journalist.value
         })
       }).then(() => {
-        console.log("hi");
-        // window.location = "/staff/articles";
+        window.location = "/staff/articles";
       })
   }
 
@@ -63,21 +59,29 @@ class ArticleFormContainer extends Component {
     .then((data) => {
       this.setState({categories: data._embedded.categories})
     })
+
+    fetch('/regions')
+    .then((res) => res.json())
+    .then((data) => {
+      this.setState({regions: data._embedded.regions})
+    })
   }
 
-  // displayRegions(){
-  //   return null;
-  // }
-  //
+  displayRegions(){
+    return this.state.regions.map((region, index) => {
+      return <option key={index} value={region._links.self.href}>{region.name}</option>
+    })
+  }
+
   displayJournalists(){
     return this.state.journalists.map((journalist, index) => {
-      return <option key={index}>{journalist.name}</option>
+      return <option key={index} value={journalist._links.self.href}>{journalist.name}</option>
     })
   }
 
   displayCategories(){
     return this.state.categories.map((category, index) => {
-      return <option key={index} value={index}>{category.category}</option>
+      return <option key={index} value={category._links.self.href}>{category.name}</option>
     })
   }
 
@@ -139,7 +143,8 @@ class ArticleFormContainer extends Component {
                         <label htmlFor="categories">Categories: </label>
                       </div>
                     <div className="col-70">
-                      <select multiple="multiple" id="categories" name="categories" required>
+                      <select multiple id="categories" name="categories" required>
+                        <option>Select at least one category</option>
                         {this.displayCategories()}
                       </select>
                   </div>
@@ -152,8 +157,7 @@ class ArticleFormContainer extends Component {
                     <div className="col-70">
                     <select id="region" name="region" required>
                         <option value="">Select A Region</option>
-                        <option value="Scotland">Scotland</option>
-                        {/* {this.displayRegions()} */}
+                        {this.displayRegions()}
                     </select></div>
                     </div>
 

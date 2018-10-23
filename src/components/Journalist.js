@@ -18,7 +18,7 @@ const Journalist = (props) => {
                 <p>{props.data.phoneNumber}</p>
                 <p>{props.data.email}</p>
                 {/* <p><div className="delete"><a href={url}>Edit</a></div></p> */}
-                <button class="buttonz">Edit</button>
+                <button className="buttonz">Edit</button>
                 {/* <button class="buttonz">Delete</button> */}
                 <p></p>
               </div>
