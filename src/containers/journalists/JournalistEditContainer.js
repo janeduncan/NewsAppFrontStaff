@@ -20,9 +20,8 @@ class JournalistEditContainer extends Component {
 
   handleSubmit(event)  {
     event.preventDefault();
-    console.log(event.target.name.value);
 
-    fetch("/journalists", {
+    fetch(this.props.url, {
       method: 'PATCH',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -33,7 +32,7 @@ class JournalistEditContainer extends Component {
         "location": event.target.location.value,
         "image": event.target.image.value
       })
-    }).then((res) => {
+    }).then(() => {
       window.location = "/staff/journalists";
     })
   }
