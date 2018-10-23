@@ -6,13 +6,16 @@ class Article extends Component {
     constructor(props){
       super(props)
       this.state = {
-        url: '/articles/' + (this.props.data.id)
+        url: '/articles/' + (this.props.data.id),
+        editLink: '/staff/articles/' + (this.props.data.id) + '/edit'
       }
-
-      this.handleArticleDelete = this.handleArticleDelete.bind(this);
+      this.handleEdit = this.handleEdit.bind(this);
+      this.handleDelete = this.handleDelete.bind(this);
+      this.formatDate = this.formatDate.bind(this);
+      this.categoryNames = this.categoryNames.bind(this);
     }
 
-  handleArticleDelete(){
+  handleDelete(){
     fetch(this.state.url, {
       method: 'DELETE',
       headers: {'Content-Type': 'application/json'}
@@ -21,26 +24,33 @@ class Article extends Component {
     })
   }
 
-  render(){
+  handleEdit(){
+    window.location = this.state.editLink;
+  }
 
-    let date = new Date(this.props.data.date);
-    let formattedDate = moment(date).format("DD/MM/YYYY HH:mm");
-
-
-
-    const categoryNames = this.props.data.categories.map((category, index) => {
+  categoryNames(){
+    return this.props.data.categories.map((category, index) => {
       return <div key={index}>{category.name} </div>
     })
+  }
+
+  formatDate(){
+    let date = new Date(this.props.data.date);
+    let formattedDate = moment(date).format("DD/MM/YYYY HH:mm");
+    return formattedDate;
+  }
+
+  render(){
 
     return (
       <tr>
-        <td>{formattedDate}</td>
+        <td>{this.formatDate()}</td>
         <td>{this.props.data.title}</td>
         <td>{this.props.data.journalist.name}</td>
         <td>{this.props.data.region.name}</td>
-        <td>{categoryNames}</td>
-        <td><button>Edit</button></td>
-        <td><button onClick={this.handleArticleDelete}>Delete</button></td>
+        <td>{this.categoryNames()}</td>
+        <td><button onClick={this.handleEdit}>Edit</button></td>
+        <td><button onClick={this.handleDelete}>Delete</button></td>
       </tr>
     )
   }
