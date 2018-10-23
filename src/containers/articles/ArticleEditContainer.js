@@ -63,7 +63,7 @@ class ArticleEditContainer extends Component{
     })
 
       fetch("/articles", {
-        method: 'POST',
+        method: 'PATCH',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           "date": event.target.date.value,

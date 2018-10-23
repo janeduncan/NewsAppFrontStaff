@@ -10,6 +10,7 @@ import JournalistFormContainer from './containers/journalists/JournalistFormCont
 // import ArticleDetails from './components/ArticleDetails';
 import JournalistDetails from './components/JournalistDetails';
 import ArticleEditContainer from './containers/articles/ArticleEditContainer';
+import JournalistEditContainer from './containers/journalists/JournalistEditContainer';
 
 class App extends Component {
   render() {
@@ -25,6 +26,11 @@ class App extends Component {
             <Route exact path="/staff/journalists/:id" render={(props) => {
               const url ="/journalists/" + props.match.params.id
               return <JournalistDetails url={url}/>
+            }}/>
+
+            <Route exact path ="/staff/journalists/:id/edit" render={(props) => {
+              const url ="/journalists/" + props.match.params.id
+              return <JournalistEditContainer url={url}/>
             }}/>
 
             {/* <Route exact path ="/staff/articles/:id/edit" render={()=><ArticleEditContainer/>}/> */}
