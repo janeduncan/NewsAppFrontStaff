@@ -7,8 +7,9 @@ import JournalistListContainer from './containers/journalists/JournalistListCont
 import ArticleListContainer from './containers/articles/ArticleListContainer';
 import ArticleFormContainer from './containers/articles/ArticleFormContainer';
 import JournalistFormContainer from './containers/journalists/JournalistFormContainer';
-import ArticleDetails from './components/ArticleDetails';
+// import ArticleDetails from './components/ArticleDetails';
 import JournalistDetails from './components/JournalistDetails';
+import ArticleEditContainer from './containers/articles/ArticleEditContainer';
 
 class App extends Component {
   render() {
@@ -26,9 +27,17 @@ class App extends Component {
               return <JournalistDetails url={url}/>
             }}/>
 
+            {/* <Route exact path ="/staff/articles/:id/edit" render={()=><ArticleEditContainer/>}/> */}
+
             <Route exact path="/staff/articles" component={ArticleListContainer}/>
             {/* <Route exact path="/staff/articles/:id" component={ArticleDetails}/> */}
             <Route exact path="/staff/articles/new" render={()=><ArticleFormContainer/>}/>
+
+            <Route exact path ="/staff/articles/:id/edit" render={(props) => {
+              const url ="/articles/" + props.match.params.id
+              return <ArticleEditContainer url={url}/>
+            }}/>
+
           </Switch>
         </React.Fragment>
       </Router>

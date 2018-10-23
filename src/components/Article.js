@@ -6,7 +6,8 @@ class Article extends Component {
     constructor(props){
       super(props)
       this.state = {
-        url: '/articles/' + (this.props.data.id)
+        url: '/articles/' + (this.props.data.id),
+        editLink: '/staff/articles/' + (this.props.data.id) + '/edit'
       }
       this.handleEdit = this.handleEdit.bind(this);
       this.handleDelete = this.handleDelete.bind(this);
@@ -24,25 +25,7 @@ class Article extends Component {
   }
 
   handleEdit(){
-    // fetch(this.state.url, {
-    //   method: 'PATCH',
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({
-    //     "date": "",
-    //     "title": "new title",
-    //     "text": "texxxxxt",
-    //     "summary": "hi",
-    //     "image": "/images/merlin.jpg",
-    //     "categories": {categoryNames},
-    //     "region": "",
-    //     "journalist": ""
-    //   })
-    // }).then(() => {
-    //   console.log("hi");
-    //   // window.location = "/staff/articles";
-    // })
-    console.log("hi");
-
+    window.location = this.state.editLink;
   }
 
   categoryNames(){
