@@ -63,7 +63,7 @@ class ArticleEditContainer extends Component{
     })
 
       fetch("/articles", {
-        method: 'PATCH',
+        method: 'PA',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           "date": event.target.date.value,
@@ -173,7 +173,6 @@ render(){
                       </div>
                     <div className="col-70">
                     <select id="region" name="region" required>
-                        <option value="">Select A Region</option>
                         {this.displayRegions()}
                     </select></div>
                     </div>
@@ -184,7 +183,7 @@ render(){
                       </div>
                     <div className="col-70">
                     <select id="journalist" name="journalist" required>
-                        <option key={0} value={this.state.article._links.journalist.href}></option>
+                        {/* <option key={0} value={this.state.article._links.journalist.href}></option> */}
                         {this.displayJournalists()}
                     </select></div>
                     </div>
