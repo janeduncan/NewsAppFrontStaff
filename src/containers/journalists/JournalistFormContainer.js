@@ -24,6 +24,7 @@ class JournalistFormContainer extends Component {
       window.location = "/staff/journalists";
     })
   }
+  
   render() {
     return (
       <div>
