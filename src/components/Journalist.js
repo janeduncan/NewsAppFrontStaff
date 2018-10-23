@@ -2,7 +2,7 @@ import React from 'react';
 
 const Journalist = (props) => {
 
-  const url = '/staff/journalists/' + (props.data.id);
+  // const url = '/staff/journalists/' + (props.data.id);
 
   return (
     <div className="journalist-item">
