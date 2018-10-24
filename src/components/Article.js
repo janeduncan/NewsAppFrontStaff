@@ -42,6 +42,8 @@ class Article extends Component {
 
   render(){
 
+    console.log(this.props.data.region)
+
     return (
       <tr>
         <td>{this.formatDate()}</td>

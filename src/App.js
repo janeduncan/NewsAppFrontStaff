@@ -40,7 +40,7 @@ class App extends Component {
             <Route exact path="/staff/articles/new" render={()=><ArticleFormContainer/>}/>
 
             <Route exact path ="/staff/articles/:id/edit" render={(props) => {
-              const url ="/articles/" + props.match.params.id
+              const url ="/articles/" + props.match.params.id + "?projection=embedItems"
               return <ArticleEditContainer url={url}/>
             }}/>
 

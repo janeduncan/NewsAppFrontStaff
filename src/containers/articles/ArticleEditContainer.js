@@ -8,14 +8,20 @@ class ArticleEditContainer extends Component{
       article: null,
       journalists: [],
       categories: [],
-      regions: []
+      regions: [],
+      selectedJournalist: null,
+      selectedRegion: null,
+      selectedCategories: []
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.displayRegions = this.displayRegions.bind(this);
     this.displayJournalists = this.displayJournalists.bind(this);
-    this.displayCategories = this.displayCategories.bind(this);
+    this.displayOtherCategories = this.displayOtherCategories.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.formatDate = this.formatDate.bind(this);
+    this.findSelectedJournalist = this.findSelectedJournalist.bind(this);
+    this.Region = this.findSelectedRegion.bind(this);
+    this.everythingHasLoaded = this.everythingHasLoaded.bind(this);
   }
 
   formatDate(){
@@ -29,26 +35,31 @@ class ArticleEditContainer extends Component{
       .then((res) => res.json())
       .then((data) => {
         this.setState({article: data})
-        // console.log(this.state.article.date);
       })
 
       fetch('/journalists')
       .then((res) => res.json())
       .then((data) => {
         this.setState({journalists: data._embedded.journalists})
+        this.setState({selectedJournalist: this.findSelectedJournalist()})
       })
 
       fetch('/categories')
       .then((res) => res.json())
       .then((data) => {
         this.setState({categories: data._embedded.categories})
+        this.setState({selectedCategories: this.state.article.categories})
+        console.log(this.state.selectedCategories);
       })
 
       fetch('/regions')
       .then((res) => res.json())
       .then((data) => {
         this.setState({regions: data._embedded.regions})
+        this.setState({selectedRegion: this.findSelectedRegion()})
       })
+
+
   }
 
   handleSubmit(event) {
@@ -62,8 +73,8 @@ class ArticleEditContainer extends Component{
       return option.value
     })
 
-      fetch("/articles", {
-        method: 'PA',
+      fetch(this.props.url, {
+        method: 'PATCH',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           "date": event.target.date.value,
@@ -81,26 +92,72 @@ class ArticleEditContainer extends Component{
   }
 
   displayRegions(){
-    return this.state.regions.map((region, index) => {
+    const otherRegions = this.state.regions.filter((region) => {
+      return region !== this.state.selectedRegion
+    })
+
+    return otherRegions.map((region, index) => {
       return <option key={index} value={region._links.self.href}>{region.name}</option>
     })
   }
 
   displayJournalists(){
-    return this.state.journalists.map((journalist, index) => {
+
+    const otherJournalists = this.state.journalists.filter((journalist) => {
+      return journalist !== this.state.selectedJournalist
+    })
+
+    return otherJournalists.map((journalist, index) => {
       return <option key={index} value={journalist._links.self.href}>{journalist.name}</option>
+    })
+
+}
+
+  displaySelectedCategories(){
+    return this.state.selectedCategories.map((category, index) => {
+      const valueUrl = "http://localhost:3000/categories/" + category.id;
+      return (
+        <option key={index} value={valueUrl} selected>
+          {category.name}
+        </option>
+      )
     })
   }
 
-  displayCategories(){
-    return this.state.categories.map((category, index) => {
+  displayOtherCategories(){
+
+    const selectedCategoryIds = this.state.selectedCategories.map((category) => {
+      return category.id
+    })
+
+    const otherCategories = this.state.categories.filter((category) => {
+      return !selectedCategoryIds.includes(category.id)
+    })
+
+    return otherCategories.map((category, index) => {
       return <option key={index} value={category._links.self.href}>{category.name}</option>
     })
   }
 
+  findSelectedJournalist(){
+  return this.state.journalists.filter((journalist) => {
+      return journalist.id === this.state.article.journalist.id
+    })[0]
+  }
+
+  findSelectedRegion(){
+  return this.state.regions.filter((region) => {
+      return region.id === this.state.article.region.id
+    })[0]
+  }
+
+  everythingHasLoaded(){
+    return (this.state.article && this.state.selectedJournalist && this.state.selectedRegion)
+  }
+
 render(){
 
-    if (this.state.article){
+    if (this.everythingHasLoaded()){
 
       return (
 
@@ -161,8 +218,8 @@ render(){
                       </div>
                     <div className="col-70">
                       <select multiple id="categories" name="categories" required>
-                        <option>Select at least one category</option>
-                        {this.displayCategories()}
+                        {this.displaySelectedCategories()}
+                        {this.displayOtherCategories()}
                       </select>
                   </div>
                     </div>
@@ -173,6 +230,8 @@ render(){
                       </div>
                     <div className="col-70">
                     <select id="region" name="region" required>
+                      <option key={0} value={this.state.selectedRegion._links.self.href}
+                        >{this.state.selectedRegion.name}</option>
                         {this.displayRegions()}
                     </select></div>
                     </div>
@@ -183,7 +242,7 @@ render(){
                       </div>
                     <div className="col-70">
                     <select id="journalist" name="journalist" required>
-                        {/* <option key={0} value={this.state.article._links.journalist.href}></option> */}
+                        <option key={0} value={this.state.selectedJournalist._links.self.href}>{this.state.selectedJournalist.name}</option>
                         {this.displayJournalists()}
                     </select></div>
                     </div>
